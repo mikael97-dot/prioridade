@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartões Prioridade - 1ª CIPM / Pernambués</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            margin: 0;
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        header {
+            background-color: #002147; /* Azul PM */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+            color: #d1d8e0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #002147;
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #1a3a68;
+        }
+        .btn-back {
+            background-color: #555;
+            margin-bottom: 20px;
+        }
+        .btn-back:hover {
+            background-color: #333;
+        }
+        .content-section {
+            display: none;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .section-header {
+            border-bottom: 2px solid #002147;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section-header h2 {
+            margin: 0;
+            color: #002147;
+        }
+        .info-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .tag {
+            background: #e0e6ed;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #002147;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        th, td {
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f8f9fa;
+            color: #002147;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #fcfcfc;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 600px) {
+            th, td { padding: 8px 5px; font-size: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>1ª CIPM / Pernambués</h1>
+        <p>SPO - Planejamento Operacional</p>
+    </header>
+
+    <div class="container">
+        <div id="menu-section" class="menu">
+            <button class="btn" onclick="showSection('rp1')">RP 1</button>
+            <button class="btn" onclick="showSection('rp2')">RP 2</button>
+            <button class="btn" onclick="showSection('moto')">Motopatrulhamento</button>
+            <button class="btn" onclick="showSection('cts')">CTS</button>
+            <button class="btn" onclick="showSection('cooper')">Cooper</button>
+        </div>
+
+        <div id="rp1" class="content-section">
+            <button class="btn btn-back" onclick="showMenu()">← Voltar ao Menu</button>
+            <div class="section-header">
+                <h2>Cartão Prioridade - RP 1</h2>
+                <div class="info-tags">
+                    <span class="tag">Horário: 06h às 21h</span>
+                    <span class="tag">Setor I: Rua Thomaz Gonzaga - Final de Linha - Av. ACM</span>
+                </div>
+            </div>
+            
+            <table>
+                <tr><th>HORÁRIO</th><th>EMPREGO</th><th>LOCAIS</th></tr>
+                <tr><td>06h às 06h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>06h30 às 07h30</td><td>ALFA 18</td><td>P1</td></tr>
+                <tr><td>07h30 às 08h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>08h às 09h</td><td>ALFA 18</td><td>P2</td></tr>
+                <tr><td>09h às 09h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>09h30 às 10h30</td><td>ALFA 18</td><td>P3</td></tr>
+                <tr><td>10h30 às 11h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>11h às 12h</td><td>ALFA 18</td><td>P4</td></tr>
+                <tr><td>12h às 13h</td><td>BETA 30</td><td>-</td></tr>
+                <tr><td>13h às 13h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>13h30 às 14h30</td><td>ALFA 18</td><td>P5</td></tr>
+                <tr><td>14h30 às 15h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>15h às 16h</td><td>ALFA 18</td><td>P6</td></tr>
+                <tr><td>16h às 17h</td><td>ALFA 18</td><td>P1</td></tr>
+                <tr><td>17h às 17h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>17h30 às 19h</td><td>ALFA 18</td><td>OPERAÇÃO HARPIA - AV. LUÍS EDUARDO MAGALHÃES</td></tr>
+                <tr><td>19h às 19h30</td><td>ALFA 16 NO SETOR / AV. ACM - ESTAÇÃO ACESSO NORTE</td><td>-</td></tr>
+                <tr><td>19h30 às 20h30</td><td>ALFA 18</td><td>P2</td></tr>
+                <tr><td>20h30 às 21h</td><td>ALFA 16 NO SETOR / AV. ACM - ESTAÇÃO ACESSO NORTE</td><td>-</td></tr>
+            </table>
+
+            <h3>Legenda - Locais de Atuação</h3>
+            <table>
+                <tr><th>PONTO</th><th>ENDEREÇO</th></tr>
+                <tr><td>P1</td><td>ENTRADA DA PASSARELA EM FRENTE À UBS "PERNAMBUEZINHO"</td></tr>
+                <tr><td>P2</td><td>AV. ACM - PROXIMIDADES DO ATACADO ATAKAREJO</td></tr>
+                <tr><td>P3</td><td>AV. ACM - EM FRENTE À "MADEIREIRA BROTAS"</td></tr>
+                <tr><td>P4</td><td>FINAL DE LINHA - RESTAURANTE POPULAR</td></tr>
+                <tr><td>P5</td><td>RUA THOMAZ GONZAGA - PRÓXIMO AO POSTO SHELL</td></tr>
+                <tr><td>P6</td><td>RUA THOMAZ GONZAGA - PRÓXIMO AO SÃO JUDAS TADEU</td></tr>
+            </table>
+        </div>
+
+        <div id="rp2" class="content-section">
+            <button class="btn btn-back" onclick="showMenu()">← Voltar ao Menu</button>
+            <div class="section-header">
+                <h2>Cartão Prioridade - RP 2</h2>
+                <div class="info-tags">
+                    <span class="tag">Horário: 08h às 23h</span>
+                    <span class="tag">Setor II: Rua Thomaz Gonzaga - Jardim Brasília - Av. ACM</span>
+                </div>
+            </div>
+            
+            <table>
+                <tr><th>HORÁRIO</th><th>EMPREGO</th><th>LOCAIS</th></tr>
+                <tr><td>08h às 08h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>08h30 às 09h30</td><td>ALFA 18</td><td>P1</td></tr>
+                <tr><td>09h30 às 10h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>10h às 11h</td><td>ALFA 18</td><td>P2</td></tr>
+                <tr><td>11h às 11h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>11h30 às 12h30</td><td>ALFA 18</td><td>P3</td></tr>
+                <tr><td>12h30 às 13h30</td><td>BETA 30</td><td>-</td></tr>
+                <tr><td>13h30 às 14h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>14h às 15h</td><td>ALFA 18</td><td>P4</td></tr>
+                <tr><td>15h às 15h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>15h30 às 16h30</td><td>ALFA 18</td><td>P5</td></tr>
+                <tr><td>16h30 às 17h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>17h às 17h30</td><td>ALFA 18</td><td>P6</td></tr>
+                <tr><td>17h30 às 19h</td><td>ALFA 18</td><td>OPERAÇÃO HARPIA - RUA THOMAZ GONZAGA - PRÓXIMO À SERMECA</td></tr>
+                <tr><td>19h às 19h30</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>19h30 às 20h</td><td>ALFA 18</td><td>P3</td></tr>
+                <tr><td>20h às 21h30</td><td>ALFA 18</td><td>P5</td></tr>
+                <tr><td>21h30 às 22h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>22h às 23h</td><td>ALFA 18</td><td>P1</td></tr>
+            </table>
+
+            <h3>Legenda - Locais de Atuação</h3>
+            <table>
+                <tr><th>PONTO</th><th>ENDEREÇO</th></tr>
+                <tr><td>P1</td><td>RUA NUMA POMPÍLIO BITTENCOURT - PRÓXIMO À ACADEMIA MEDLEY</td></tr>
+                <tr><td>P2</td><td>RUA THOMAZ GONZAGA - PRÓXIMO À SERMECA</td></tr>
+                <tr><td>P3</td><td>RUA THOMAZ GONZAGA - PRÓXIMO À FARMÁCIA SÃO PAULO</td></tr>
+                <tr><td>P4</td><td>RUA DOS RODOVIÁRIOS - EM FRENTE AO PONTO DE ÔNIBUS</td></tr>
+                <tr><td>P5</td><td>ENTRADA DA ANTIGA ESTAÇÃO RODOVIÁRIA</td></tr>
+                <tr><td>P6</td><td>AV. ACM - ENTRADA DA ESTAÇÃO METRÔ DETRAN</td></tr>
+            </table>
+        </div>
+
+        <div id="moto" class="content-section">
+            <button class="btn btn-back" onclick="showMenu()">← Voltar ao Menu</button>
+            <div class="section-header">
+                <h2>Cartão Prioridade - Motopatrulhamento</h2>
+                <div class="info-tags">
+                    <span class="tag">Horário: 10h às 20h</span>
+                    <span class="tag">Setor: Av. L.E.M. - Av. ACM - Alameda Horto Bela Vista - Rua Thomaz Gonzaga - Jardim Brasília - Final de Linha</span>
+                </div>
+            </div>
+
+            <table>
+                <tr><th>HORÁRIO</th><th>EMPREGO</th><th>LOCAIS</th></tr>
+                <tr><td>10h às 10h20</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>10h20 às 10h40</td><td>ALFA 18</td><td>P1</td></tr>
+                <tr><td>10h40 às 11h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>11h às 11h20</td><td>ALFA 18</td><td>P2</td></tr>
+                <tr><td>11h20 às 11h40</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>11h40 às 12h</td><td>ALFA 18</td><td>P3</td></tr>
+                <tr><td>12h às 12h20</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>12h20 às 12h40</td><td>ALFA 18</td><td>P4</td></tr>
+                <tr><td>12h40 às 13h</td><td>ALFA 18</td><td>P5</td></tr>
+                <tr><td>13h às 14h</td><td>BETA 30</td><td>-</td></tr>
+                <tr><td>14h às 14h20</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>14h20 às 14h40</td><td>ALFA 18</td><td>P6</td></tr>
+                <tr><td>14h40 às 15h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>15h às 15h20</td><td>ALFA 18</td><td>P7</td></tr>
+                <tr><td>15h20 às 15h40</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>15h40 às 16h</td><td>ALFA 18</td><td>P8</td></tr>
+                <tr><td>16h às 16h20</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>16h20 às 16h40</td><td>ALFA 18</td><td>P9</td></tr>
+                <tr><td>16h40 às 17h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+                <tr><td>17h às 17h30</td><td>ALFA 18</td><td>P10</td></tr>
+                <tr><td>17h30 às 19h</td><td>ALFA 18 - ALFA16</td><td>OPERAÇÃO HARPIA JARDIM BRASÍLIA</td></tr>
+                <tr><td>19h às 19h30</td><td>ALFA 18</td><td>P11</td></tr>
+                <tr><td>19h30 às 20h</td><td>ALFA 16 NO SETOR</td><td>-</td></tr>
+            </table>
+
+            <h3>Legenda - Locais de Atuação</h3>
+            <table>
+                <tr><th>PONTO</th><th>ENDEREÇO</th></tr>
+                <tr><td>P1</td><td>ENTRADA DA PASSARELA EM FRENTE À UBS "PERNAMBUEZINHO"</td></tr>
+                <tr><td>P2</td><td>AV. ACM - PROXIMIDADES DO ATACADO ATAKAREJO</td></tr>
+                <tr><td>P3</td><td>AV. ACM - EM FRENTE À "MADEIREIRA BROTAS"</td></tr>
+                <tr><td>P4</td><td>AV. ACM - ENTRADA DA ESTAÇÃO METRÔ DETRAN</td></tr>
+                <tr><td>P5</td><td>RUA DOS RODOVIÁRIOS - EM FRENTE AO PONTO DE ÔNIBUS</td></tr>
+                <tr><td>P6</td><td>RUA NUMA POMPÍLIO BITTENCOURT - PRÓXIMO À ACADEMIA MEDLEY</td></tr>
+                <tr><td>P7</td><td>RUA THOMAZ GONZAGA - PRÓXIMO À SERMECA</td></tr>
+                <tr><td>P8</td><td>RUA THOMAZ GONZAGA - PRÓXIMO À FARMÁCIA SÃO PAULO</td></tr>
+                <tr><td>P9</td><td>RUA THOMAZ GONZAGA - PRÓXIMO AO SÃO JUDAS TADEU</td></tr>
+                <tr><td>P10</td><td>RUA THOMAZ GONZAGA - PRÓXIMO AO POSTO SHELL</td></tr>
+                <tr><td>P11</td><td>FINAL DE LINHA RESTAURANTE POPULAR</td></tr>
+            </table>
+        </div>
+
+        <div id="cts" class="content-section">
+            <button class="btn btn-back" onclick="showMenu()">← Voltar ao Menu</button>
+            <div class="section-header">
+                <h2>Cartão Prioridade - CTS</h2>
+                <div class="info-tags">
+                    <span class="tag">Horário: 15h às 22h</span>
+                </div>
+            </div>
+
+            <table>
+                <tr><th>HORÁRIO</th><th>LOCAL</th></tr>
+                <tr><td>15h às 18h</td><td>Terminal de Transbordo (alfa 18)<br>Estação Transbordo (alfa 18)</td></tr>
+                <tr><td>18h às 19h</td><td>Entrada da Antiga Estação Rodoviária (alfa 16 e 18)</td></tr>
+                <tr><td>19h às 19h30</td><td>Beta 30</td></tr>
+                <tr><td>19h30 às 20h30</td><td>Entrada da Antiga Estação Rodoviária (alfa 16 e 18)</td></tr>
+                <tr><td>20h30 às 22h</td><td>Terminal de Transbordo (alfa 18)</td></tr>
+            </table>
+        </div>
+
+        <div id="cooper" class="content-section">
+            <button class="btn btn-back" onclick="showMenu()">← Voltar ao Menu</button>
+            <div class="section-header">
+                <h2>Cartão Prioridade - COOPER</h2>
+                <div class="info-tags">
+                    <span class="tag">Horário no Documento: 15h às 22h</span>
+                </div>
+            </div>
+
+            <table>
+                <tr><th>HORÁRIO</th><th>LOCAL</th></tr>
+                <tr><td>06h às 08h</td><td>Estação Transbordo (alfa 18)</td></tr>
+                <tr><td>08h às 11h</td><td>Entrada da Antiga Estação Rodoviária (alfa 16 e 18)</td></tr>
+                <tr><td>11h às 12h</td><td>Terminal Transbordo (alfa 18)</td></tr>
+                <tr><td>12h às 12h30</td><td>Beta 30</td></tr>
+                <tr><td>12h30 às 14h00</td><td>Terminal de transbordo (alfa 16)</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script>
+        function showSection(id) {
+            // Esconde o menu
+            document.getElementById('menu-section').style.display = 'none';
+            
+            // Esconde todas as seções de conteúdo
+            var sections = document.getElementsByClassName('content-section');
+            for(var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            
+            // Mostra a seção desejada
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo(0, 0); // Volta pro topo da página
+        }
+
+        function showMenu() {
+            // Esconde todas as seções de conteúdo
+            var sections = document.getElementsByClassName('content-section');
+            for(var i = 0; i < sections.length; i++) {
+                sections[i].style.display = 'none';
+            }
+            
+            // Mostra o menu principal
+            document.getElementById('menu-section').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
